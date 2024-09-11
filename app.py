@@ -124,7 +124,7 @@ def main():
                 with st.expander("Blog"):
                     blog_agent = BlogAgent(llm, topic, transcription)
                     blog_content, blog_md, imgs, blog_status = blog_agent.generate_blog()
-                    with open(blog_md, 'r) as f:
+                    with open(blog_md, 'r') as f:
                         blog_markdown = f.read()
                     st.markdown(blog_markdown)
                     st.image(imgs, ['image 1', 'image 2'], width=320)
