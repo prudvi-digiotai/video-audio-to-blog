@@ -69,8 +69,8 @@ import os
 from langchain_openai import ChatOpenAI
 from agents import BlogAgent, EmailAgent, LinkedinAgent, TwitterAgent
 from utils import twitter_tweet
-from dotenv import load_dotenv
-load_dotenv()
+# from dotenv import load_dotenv
+# load_dotenv()
 
 client = OpenAI()
 
