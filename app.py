@@ -115,7 +115,7 @@ def main():
 
             st.write("Transcribing audio...")
             transcription = transcribe_audio(audio_path)
-            st.text_area("Transcription", transcription, height=100)
+            # st.text_area("Transcription", transcription, height=100)
 
             # make blog
             llm = ChatOpenAI(model='gpt-4o-mini')
@@ -124,7 +124,11 @@ def main():
                 with st.expander("Blog"):
                     blog_agent = BlogAgent(llm, topic, transcription)
                     blog_content, blog_md, imgs, blog_status = blog_agent.generate_blog()
-                    st.markdown(blog_status)
+                    with open(blog_md, 'r) as f:
+                        blog_markdown = f.read()
+                    st.markdown(blog_markdown)
+                    st.image(imgs, ['image 1', 'image 2'], width=320)
+                    
 
             if "LinkedIn Post" in options:
                 with st.spinner("Creating LinkedIn Post..."):
